@@ -1,0 +1,139 @@
+@charset "UTF-8";
+ @import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
+ /* body {
+	 background: #e2e1e0;
+	 margin: 0 auto;
+	 padding: 12vmin 10vmin;
+	 max-width: 50em;
+	 line-height: 1.5em;
+	 font-family: "PT Sans";
+	 word-wrap: break-word;
+	 display: flex;
+} */
+
+
+
+body{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 1.7;
+	color: #fff;
+	background-image: url('https://assets.codepen.io/1462889/web-app-back.svg');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+
+.navbar-links{
+    margin-left: 63%;
+}
+
+.nav-color{
+    height: 50px;
+    background-image:radial-gradient(rgb(33, 31, 31), rgb(35, 34, 34));
+    margin: 0px;
+    height: 60px;
+    font-family: audiowide;
+    color: aliceblue;
+}
+
+.intro-heading{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 100px;
+    
+    margin-bottom: 100px;
+    color: white;
+}
+
+.intro-heading h1{
+    margin-bottom: 50px;
+}
+ #id-card {
+	 display: inline-block;
+	 float: left;
+	 margin-right: 2em;
+}
+ .id-card {
+	 width: 336px;
+	 height: 192px;
+	 background: #fff;
+	 padding: 10px;
+	 position: relative;
+}
+
+ .id-card__mugshot img {
+	 width: 10px;
+	 height: 100px;
+}
+ .id-card__logo {
+	 width: 200px;
+}
+ .id-card__subject-id {
+	 position: absolute;
+	 top: 54px;
+	 left: 130px;
+	 font-family: monospace;
+	 font-size: 14pt;
+	 transform: rotate(-4deg);
+}
+ .id-card__banner {
+	 height: 10pt;
+	 background: red;
+	 margin-top: 10px;
+	 margin-left: -10px;
+	 padding-left: 12px;
+}
+ .id-card__banner-text {
+	 color: #fff;
+	 font-size: 8pt;
+	 letter-spacing: 2px;
+	 line-height: 0;
+	 position: relative;
+	 top: -6px;
+}
+ .logo__big {
+	 font-size: 24pt;
+	 font-weight: bold;
+	 line-height: 1.3;
+	 letter-spacing: 4px;
+}
+ .logo__small {
+	 font-size: 10pt;
+	 letter-spacing: 4px;
+	 position: relative;
+	 top: -10px;
+	 left: 2px;
+}
+ .id-form__row {
+	 padding-bottom: 8px;
+}
+ .id-form__row--inline {
+	 width: 10em;
+	 padding-right: 1em;
+	 padding-bottom: 1em;
+	 display: inline-block;
+}
+ .id-form__label {
+	 font-size: 8pt;
+	 line-height: 8pt;
+}
+ .material-ui-shadow {
+	 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	 transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+ .material-ui-shadow:hover {
+	 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+ 
