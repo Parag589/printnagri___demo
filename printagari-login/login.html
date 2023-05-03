@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">    <link rel="stylesheet" href="./login.css">    <script href="./loin.js"></script>
+    <title>Login/Sign up</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo3.png">
+</head>
+<body>
+    <div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup" >
+				<form method="POST" onsubmit="return false;">
+					<label for="chk"  aria-hidden="true">Sign up</label>
+					<!-- <input type="text" name="txt" placeholder="User name" required=""> -->
+					<input type="email" name="email" id="email" placeholder="Email" required="">
+					<input type="password" name="password" id="password" placeholder="Password" required="">
+					<button id="register">Register</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form method="POST" onsubmit="return false;" >
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" name="email" id="login_email" placeholder="Email" required="">
+					<input type="password" name="password" id="login_password" placeholder="Password" required="">
+					<button  id="login"> <a href="./Inside_login/p.html" style="text-decoration: none; color: aliceblue ;"> login</a></button>
+				</form>
+			</div>
+	</div>
+    <a id="logout" href="LOGOUT"></a>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
+    import{ getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from"https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyC89QD3f5YlGvGddoFkAxE4nTVjAnrE0ng",
+      authDomain: "printnagri.firebaseapp.com",
+      projectId: "printnagri",
+    //   databaseURL: "https://printnagri.firebaseio.com",
+      storageBucket: "printnagri.appspot.com",
+      messagingSenderId: "240253049878",
+      appId: "1:240253049878:web:d5b13a8b0b440305b42937",
+      measurementId: "G-8R42VVTN7B"
+    };
+
+    // firebase.initializeApp(config);
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    firebase.initializeApp(config);
+    // const db = firebase.firestore();
+    // db.settings({timestampInSnapshots: true});
+
+    // console.log(app);
+    const auth = getAuth();
+
+    // new registration
+    document.getElementById("register").addEventListener("click", function(){
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        // for new registration
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) =>{
+            // signed in
+            const user = userCredential.user;
+            console.log(user);
+            alert("Registration successfully!!");
+            //...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          //...
+          console.log(errorMessage);
+          alert(error);
+        });
+    });
+    // ----------end
+
+    // -----------login code 
+    document.getElementById("login").addEventListener("click", function(){
+    var email = document.getElementById("login_email").value;
+    var password = document.getElementById("login_password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // signed in
+        const user = userCredential.user;
+        console.log(user);
+        alert(user.email+"Login successfully!!!");
+        window.location.replace("./samples - Copy/p.html");
+        document.getElementById('logout').style.display='block';
+        // ...
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        alert(errorMessage);
+    });
+});
+
+// -------end 
+
+// ---------logout-code 
+documet.getElementById("logout").addEventListener("click", function(){
+    signOut(auth).then(() =>{
+        //signout successful
+        console.log('sign-out successfull.');
+        document.getElementById('logout').style.display = 'none';
+    }).catch((error) => {
+        // an error hppened
+        console.log('An error happened');
+    });
+});
+  </script>
+</html>                             
